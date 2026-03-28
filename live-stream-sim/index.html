@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sherlock's Life – Live</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ── LOADING OVERLAY ─────────────────────────────────── -->
+  <div id="loading-overlay">
+    <div class="loader-content">
+      <div class="loader-spinner">
+        <div class="spinner-ring"></div>
+      </div>
+      <p class="loader-text">Connecting to live stream<span class="dots"></span></p>
+      <p class="loader-sub">Sherlock's Life &bull; Live</p>
+    </div>
+  </div>
+
+  <!-- ── TOP NAV ─────────────────────────────────────────── -->
+  <nav class="topnav">
+    <div class="nav-left">
+      <span class="nav-logo"><span class="logo-play">&#9654;</span> SherlockLive</span>
+    </div>
+    <div class="nav-right">
+      <button class="btn-signin">Sign In</button>
+    </div>
+  </nav>
+
+  <!-- ── MAIN LAYOUT ─────────────────────────────────────── -->
+  <div class="layout">
+
+    <!-- LEFT: VIDEO + INFO -->
+    <main class="col-video">
+
+      <!-- VIDEO CONTAINER -->
+      <div class="video-container">
+        <video
+          id="stream-video"
+          autoplay
+          muted
+          playsinline
+          loop
+          preload="auto"
+          style="width:100%;height:100%;object-fit:cover;display:block;
+                 will-change:transform;transform:translateZ(0);"
+        >
+          <source src="assets/video.mp4" type="video/mp4">
+        </video>
+
+        <!-- OVERLAYS ON VIDEO -->
+        <div class="overlay-live-badge" id="live-badge">
+          <span class="pulse-dot"></span>
+          LIVE
+        </div>
+
+        <div class="overlay-viewers" id="viewer-count">
+          <span class="eye-icon">&#x1f441;</span>
+          <span id="viewer-num">0</span> watching
+        </div>
+
+        <div class="overlay-title" id="overlay-title">
+          The Sherlock Holmes Experience &mdash; Live
+        </div>
+
+        <div class="overlay-clock" id="overlay-clock">
+          00:00:00
+        </div>
+
+      </div>
+
+      <!-- STREAM INFO -->
+      <div class="stream-info">
+        <h1 class="stream-title">The Sherlock Holmes Experience &mdash; Live Session</h1>
+        <div class="stream-meta">
+          <span class="meta-live">&#x1f534; Streaming Now</span>
+          <span class="meta-sep">&middot;</span>
+          <span class="meta-duration" id="stream-duration">Started 0:00 ago</span>
+          <span class="meta-sep">&middot;</span>
+          <span class="meta-viewers" id="meta-viewers">0 watching</span>
+        </div>
+
+        <div class="stream-actions">
+          <div class="action-group-like">
+            <button class="btn-action" id="like-btn">&#x1f44d; <span id="like-count">0</span></button>
+            <button class="btn-action btn-dislike">&#x1f44e;</button>
+          </div>
+          <button class="btn-action">&#x1f517; Share</button>
+          <button class="btn-action">&#x1f4be; Save</button>
+          <button class="btn-action">&#x2026;</button>
+        </div>
+      </div>
+
+      <!-- CHANNEL BAR -->
+      <div class="channel-bar">
+        <div class="channel-left">
+          <div class="channel-avatar">SL</div>
+          <div class="channel-info">
+            <span class="channel-name">Sherlock's Life</span>
+            <span class="channel-subs">124K subscribers</span>
+          </div>
+        </div>
+        <button class="btn-subscribe">Subscribe</button>
+      </div>
+
+      <!-- DESCRIPTION -->
+      <div class="description-box">
+        <p>Welcome to the live experience! Immersing into the world of Sherlock Holmes.
+           Drop your thoughts in the chat &#x1f447;</p>
+        <span class="desc-tags">#Live #SherlockHolmes #Experience #Mystery</span>
+      </div>
+    </main>
+
+    <!-- RIGHT: CHAT -->
+    <aside class="col-chat">
+      <div class="chat-panel">
+        <div class="chat-header">
+          <span class="chat-header-title">Live Chat</span>
+          <div class="chat-tabs">
+            <button class="chat-tab active">Live Chat</button>
+            <button class="chat-tab">Top Chat</button>
+          </div>
+          <span class="chat-settings">&#x2699;</span>
+        </div>
+
+        <div class="chat-pinned">
+          <div class="pinned-label">&#x1f4cc; Pinned by Sherlock's Life</div>
+          <div class="pinned-text">Welcome to the stream! Keep it friendly &#x1f534;</div>
+        </div>
+
+        <div class="chat-messages" id="chat-messages"></div>
+
+        <div class="chat-input-area">
+          <div class="chat-input-row">
+            <div class="input-avatar">?</div>
+            <input type="text" class="chat-input" placeholder="Chat..." disabled>
+            <span class="input-emoji">&#x1f60a;</span>
+          </div>
+          <p class="chat-signin-note">Sign in to chat</p>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
